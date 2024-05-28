@@ -1,10 +1,6 @@
-<?php 
-
+<?php
+require 'connection.php';
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,9 +32,38 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Mobile</th>
+                                    <th scope="col">Option</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $sql = "SELECT * FROM student";
+                                $run  = mysqli_query($conn, $sql);
+
+                                $id = 1;
+
+                                while ($row = mysqli_fetch_array($run)) {
+
+                                    $uid  = $row['id'];
+                                    $name  = $row['name'];
+                                    $address  = $row['address'];
+                                    $mobile  = $row['mobile'];
+                                ?>
+                                    <tr>
+                                        <td><?php echo $id  ?></td>
+                                        <td><?php echo $name  ?></td>
+                                        <td><?php echo $address  ?></td>
+                                        <td><?php echo $mobile  ?></td> 
+                                        <td>
+                                            <button class="btn btn-success"> <a href="edit.php?uid=<?php echo $uid ?>" class="text-white">Edit</a> </button>
+                                            <button class="btn btn-danger"> <a href="delete.php?uid=<?php echo $uid ?>" class="text-white ">Delete</a> </button>
+                                        </td>
+
+                                    </tr>
+
+                                <?php $id++;
+                                } ?>
+
 
                             </tbody>
                         </table>
