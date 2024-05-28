@@ -13,7 +13,6 @@ require 'connection.php';
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-md=9 my-5">
@@ -50,13 +49,13 @@ require 'connection.php';
                                     $mobile  = $row['mobile'];
                                 ?>
                                     <tr>
-                                        <td><?php echo $id  ?></td>
-                                        <td><?php echo $name  ?></td>
-                                        <td><?php echo $address  ?></td>
-                                        <td><?php echo $mobile  ?></td> 
+                                        <td><?php echo $id ?></td>
+                                        <td><?php echo $name ?></td>
+                                        <td><?php echo $address ?></td>
+                                        <td><?php echo $mobile ?></td>
                                         <td>
-                                            <button class="btn btn-success"> <a href="edit.php?uid=<?php echo $uid ?>" class="text-white">Edit</a> </button>
-                                            <button class="btn btn-danger"> <a href="delete.php?uid=<?php echo $uid ?>" class="text-white ">Delete</a> </button>
+                                            <button class="btn btn-success"> <a href="edit.php?edit=<?php echo $uid ?>" class="text-white">Edit</a> </button>
+                                            <button class="btn btn-danger"> <a href="delete.php?del=<?php echo $uid ?>" class="text-white ">Delete</a> </button>
                                         </td>
 
                                     </tr>
