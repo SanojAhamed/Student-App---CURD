@@ -1,6 +1,22 @@
 <?php
 
-if(isset($_POST-))
+require 'connection.php';
+
+if (isset($_POST['submit'])) {
+
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+    $mobile = $_POST['mobile'];
+
+    $sql = "INSERT INTO student(name,address,mobile) VALUES('$name', '$address', '$mobile')";
+
+    if (mysqli_query($conn, $sql)) {
+        echo '<script> location.replace("index.php"); </script>';
+    } else {
+        echo "Error" . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
+}
 
 ?>
 
@@ -23,24 +39,24 @@ if(isset($_POST-))
                 <div class="card">
                     <h5 class="card-header">School App CURD</h5>
                     <div class="card-body">
-                        <form action = "add.php" method = "post">
+                        <form action="add.php" method="post">
                             <div class="form-group">
                                 <label for="exampleInpuTname">Name</label>
-                                <input type="text" class="form-control" id="exampleInputname" placeholder="Enter Name">
+                                <input type="text" name="name" class="form-control" id="exampleInputname" placeholder="Enter Name">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInpuTaddress">Address</label>
-                                <input type="text" class="form-control" id="exampleInputaddress" placeholder="Enter Address">
+                                <input type="text" name="address" class="form-control" id="exampleInputaddress" placeholder="Enter Address">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInpuTmobile">Mobile</label>
-                                <input type="text" class="form-control" id="exampleInputmobile" placeholder="Enter Mobile">
+                                <input type="text" name="mobile" class="form-control" id="exampleInputmobile" placeholder="Enter Mobile">
                             </div>
 
                             <br>
-                            
+
                             <button type="submit" name="submit" class="btn btn-primary">Register</button>
                         </form>
                     </div>
