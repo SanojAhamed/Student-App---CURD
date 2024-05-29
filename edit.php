@@ -3,7 +3,7 @@
 require 'connection.php';
 
 $edit = $_GET['edit'];
-$sql = "SELECT * FROM student WHERE id = '$edit' ";
+$sql = "SELECT * FROM student WHERE id = '$edit'";
 
 $run = mysqli_query($conn, $sql);
 
@@ -36,8 +36,6 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
