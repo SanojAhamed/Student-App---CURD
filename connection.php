@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dbcurd";
+$dbname = "dbcrud";
 
 // mysqli_connect use to connect to the database check the connection if it is not connected it will show the error.
 $conn = new mysqli($servername, $username, $password, $dbname);
